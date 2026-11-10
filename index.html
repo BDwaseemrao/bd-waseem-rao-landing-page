@@ -5,101 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Client acquisition systems for software and digital marketing agencies using Upwork, LinkedIn, cold email, paid ads and CRM.">
   <title>Waseem Rao | Client Acquisition Systems</title>
-  <style>:root {
-  --black: #080b09;
-  --black-soft: #101511;
-  --card: #161b17;
-  --green: #26b96b;
-  --green-deep: #168a4c;
-  --green-pale: #c9ead8;
-  --offwhite: #f3f1eb;
-  --white: #fff;
-  --grey: #aab2ac;
-  --dark-text: #101310;
-  --dark-grey: #606861;
-  --line: #dce2dc;
-  --dark-line: #29302b;
-  --radius: 24px;
-  --container: 1240px;
-}
+  <style>
+    :root {
+      --black: #080b09;
+      --black-soft: #101511;
+      --card: #161b17;
+      --green: #26b96b;
+      --green-deep: #168a4c;
+      --green-pale: #c9ead8;
+      --offwhite: #f3f1eb;
+      --white: #fff;
+      --grey: #aab2ac;
+      --dark-text: #101310;
+      --dark-grey: #606861;
+      --line: #dce2dc;
+      --dark-line: #29302b;
+      --radius: 24px;
+      --container: 1240px;
+    }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--offwhite); color: var(--dark-text); font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
-a { color: inherit; text-decoration: none; }
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
-h1, h2, h3, p { margin-top: 0; }
-h1, h2, h3 { letter-spacing: -0.045em; }
-p { line-height: 1.65; }
-.section-dark { background: var(--black); color: var(--white); }
-.section-light { background: var(--offwhite); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--offwhite); color: var(--dark-text); font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { letter-spacing: -0.045em; }
+    p { line-height: 1.65; }
+    .section-dark { background: var(--black); color: var(--white); }
+    .section-light { background: var(--offwhite); }
 
-.site-header { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 32px), var(--container)); min-height: 68px; padding: 10px 12px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: rgba(245,246,242,.88); border: 1px solid rgba(16,19,16,.1); border-radius: 999px; backdrop-filter: blur(18px); z-index: 50; box-shadow: 0 14px 40px rgba(0,0,0,.08); }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
-.brand-mark { display: grid; place-items: center; width: 42px; height: 42px; overflow: hidden; background: var(--black); color: var(--green); border-radius: 50%; font-size: 12px; border: 2px solid rgba(38,185,107,.35); }
-.desktop-nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 650; color: #3f4640; }
-.desktop-nav a { transition: color .2s ease; }
-.desktop-nav a:hover { color: #000; }
-.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 800; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
-.button:hover { transform: translateY(-2px); }
-.button-dark { background: var(--black); color: var(--white); }
-.button-green { background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; box-shadow: 0 10px 35px rgba(38,185,107,.16); }
-.button-green:hover { box-shadow: 0 16px 46px rgba(38,185,107,.25); }
-.button-outline { border-color: #3c443e; color: var(--white); background: rgba(255,255,255,.03); }
-.menu-button, .mobile-nav { display: none; }
+    .site-header { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 32px), var(--container)); min-height: 68px; padding: 10px 12px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: rgba(245,246,242,.88); border: 1px solid rgba(16,19,16,.1); border-radius: 999px; backdrop-filter: blur(18px); z-index: 50; box-shadow: 0 14px 40px rgba(0,0,0,.08); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; overflow: hidden; background: var(--black); color: var(--green); border-radius: 50%; font-size: 12px; border: 2px solid rgba(38,185,107,.35); }
+    .desktop-nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 650; color: #3f4640; }
+    .desktop-nav a { transition: color .2s ease; }
+    .desktop-nav a:hover { color: #000; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 800; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-dark { background: var(--black); color: var(--white); }
+    .button-green { background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; box-shadow: 0 10px 35px rgba(38,185,107,.16); }
+    .button-green:hover { box-shadow: 0 16px 46px rgba(38,185,107,.25); }
+    .button-outline { border-color: #3c443e; color: var(--white); background: rgba(255,255,255,.03); }
+    .menu-button, .mobile-nav { display: none; }
 
-.hero { padding: 150px 24px 0; min-height: 860px; position: relative; overflow: hidden; }
-.hero::before { content: ""; position: absolute; width: 700px; height: 700px; right: -250px; top: 50px; border-radius: 50%; background: radial-gradient(circle, rgba(38,185,107,.13), transparent 66%); filter: blur(10px); }
-.hero-grid { position: relative; width: min(100%, var(--container)); margin: 0 auto; min-height: 640px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 70px; }
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.eyebrow span { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 18px var(--green); }
-.hero h1 { max-width: 790px; margin: 24px 0; font-size: clamp(52px, 6vw, 92px); line-height: .96; font-weight: 850; }
-.hero h1 em { color: var(--green); font-style: normal; }
-.hero-copy > p { max-width: 720px; color: #bdc5bf; font-size: 18px; }
-.hero-actions { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
-.hero-proof { margin-top: 54px; display: flex; gap: 44px; }
-.hero-proof div { display: grid; gap: 5px; }
-.hero-proof strong { color: var(--white); font-size: 24px; }
-.hero-proof span { color: #828b84; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .hero { padding: 160px 24px 80px; min-height: 80vh; position: relative; overflow: hidden; display: flex; align-items: center; }
+    .hero-grid { position: relative; width: min(100%, var(--container)); margin: 0 auto; display: grid; grid-template-columns: 1fr; align-items: center; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; justify-content: center; }
+    .eyebrow span { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 18px var(--green); }
+    .hero h1 { max-width: 900px; margin: 24px auto; font-size: clamp(40px, 5vw, 76px); line-height: 1.05; font-weight: 850; }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero-copy > p { max-width: 720px; margin: 0 auto 35px; color: #bdc5bf; font-size: 18px; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-.problem, .services, .system, .results, .cases, .tools, .process, .contact, .faq { padding: 120px max(24px, calc((100vw - var(--container))/2)); }
-.section-label { margin-bottom: 40px; color: #6f766f; font-size: 11px; font-weight: 850; letter-spacing: .16em; }
-.section-label.light { color: #818a83; }
-.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
-.problem h2, .section-head h2, .system h2, .process h2, .contact h2, .faq h2 { margin-bottom: 0; max-width: 760px; font-size: clamp(40px, 5vw, 70px); line-height: 1.02; }
-.problem h2 span { color: #168a4c; }
-.problem-content .lead { margin-bottom: 40px; max-width: 590px; color: #555d56; font-size: 19px; }
-.diagnostic-list { list-style: none; margin: 0; padding: 0; }
-.diagnostic-list li { display: grid; grid-template-columns: 45px 1fr; gap: 18px; padding: 24px 0; border-top: 1px solid #d8ded8; }
-.diagnostic-list li > span { color: #168a4c; font-size: 11px; font-weight: 900; }
-.diagnostic-list b { font-size: 18px; }
-.diagnostic-list p { margin: 5px 0 0; color: #6c746d; font-size: 14px; }
+    .contact { padding: 100px 24px; }
+    .contact-wrap { width: min(100%, var(--container)); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .contact-copy > p { max-width: 530px; margin-top: 28px; color: #9ba49d; font-size: 16px; }
+    .contact-form { padding: 40px; background: var(--white); color: var(--dark-text); border-radius: 26px; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+    .contact-form label { display: grid; gap: 8px; margin-bottom: 20px; color: #5d655e; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px 16px; color: #151815; background: #f4f6f2; border: 1px solid #e0e5df; border-radius: 12px; outline: none; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: #26a763; box-shadow: 0 0 0 4px rgba(38,185,107,.1); }
+    .form-submit { width: 100%; border: 0; background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; padding: 16px; border-radius: 999px; font-weight: 800; font-size: 16px; cursor: pointer; }
 
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 64px; }
-.section-head > p { max-width: 420px; margin: 0; color: #89928b; }
-.services .section-head h2, .cases .section-head h2 { color: var(--white); }
-.service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-.service-card { min-height: 510px; padding: 28px; display: flex; flex-direction: column; background: linear-gradient(145deg,#171b18,#111411); border: 1px solid var(--dark-line); border-radius: var(--radius); }
-.card-number { color: #606a62; font-size: 11px; font-weight: 850; }
-.service-card h3 { margin-bottom: 14px; font-size: 28px; color: #fff; }
-.service-card p { color: #909991; font-size: 14px; }
-
-/* Contact Form adjusted to send to bdwaseemrao@gmail.com via FormSubmit */
-.contact-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; }
-.contact-copy { align-self: center; }
-.contact-copy > p { max-width: 530px; margin-top: 28px; color: #9ba49d; }
-.contact-form { padding: 34px; background: var(--white); color: var(--dark-text); border-radius: 26px; }
-.contact-form label { display: grid; gap: 8px; margin-bottom: 18px; color: #5d655e; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-.contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px 16px; color: #151815; background: #f4f6f2; border: 1px solid #e0e5df; border-radius: 12px; outline: none; }
-.form-submit { width: 100%; border: 0; background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; padding: 15px; border-radius: 999px; font-weight: 800; }
-
-@media (max-width: 760px) {
-  .hero { padding: 120px 18px 0; }
-  .problem-grid, .contact-wrap { grid-template-columns: 1fr; gap: 50px; }
-  .service-grid { grid-template-columns: 1fr; }
-}
-</style>
+    @media (max-width: 760px) {
+      .hero { padding: 130px 16px 60px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form { padding: 24px 18px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -109,12 +83,13 @@ p { line-height: 1.65; }
   </header>
 
   <main id="top">
+    <!-- Hero Section -->
     <section class="hero section-dark">
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="eyebrow"><span></span> B2B Lead Generation & Sales Engine</div>
           <h1>Helping software and digital marketing agencies <em>win more clients.</em></h1>
-          <p>We build predictable client acquisition systems using Upwork, LinkedIn, cold email, paid ads and CRM.</p>
+          <p>We build predictable client acquisition systems using Upwork, LinkedIn, cold email, paid ads and CRM[cite: 4].</p>
           <div class="hero-actions">
             <a class="button button-green" href="#contact">Discuss Your Project <span>↗</span></a>
             <a class="button button-outline" href="https://wa.me/923306614612?text=Hi%20Waseem,%20let's%20discuss%20our%20agency%20growth." target="_blank">Chat on WhatsApp</a>
@@ -123,7 +98,7 @@ p { line-height: 1.65; }
       </div>
     </section>
 
-    <!-- Contact Section with FormSubmit linked to bdwaseemrao@gmail.com -->
+    <!-- Contact Section -->
     <section class="contact section-dark" id="contact">
       <div class="contact-wrap">
         <div class="contact-copy">
