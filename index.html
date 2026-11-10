@@ -1,20 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Waseem Rao | Client Acquisition Systems</title>
-<meta name="description" content="Client acquisition systems for software and digital marketing agencies using Upwork, LinkedIn, cold email, paid ads and CRM.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Client acquisition systems for software and digital marketing agencies using Upwork, LinkedIn, cold email, paid ads and CRM.">
+  <title>Waseem Rao | Client Acquisition Systems</title>
+  <style>
+    :root {
+      --black: #080b09;
+      --black-soft: #101511;
+      --card: #161b17;
+      --green: #26b96b;
+      --green-deep: #168a4c;
+      --green-pale: #c9ead8;
+      --offwhite: #f3f1eb;
+      --white: #fff;
+      --grey: #aab2ac;
+      --dark-text: #101310;
+      --dark-grey: #606861;
+      --line: #dce2dc;
+      --dark-line: #29302b;
+      --radius: 24px;
+      --container: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--offwhite); color: var(--dark-text); font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { letter-spacing: -0.045em; }
+    p { line-height: 1.65; }
+    .section-dark { background: var(--black); color: var(--white); }
+    .section-light { background: var(--offwhite); }
+
+    .site-header { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 32px), var(--container)); min-height: 68px; padding: 10px 12px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: rgba(245,246,242,.88); border: 1px solid rgba(16,19,16,.1); border-radius: 999px; backdrop-filter: blur(18px); z-index: 50; box-shadow: 0 14px 40px rgba(0,0,0,.08); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; overflow: hidden; background: var(--black); color: var(--green); border-radius: 50%; font-size: 12px; border: 2px solid rgba(38,185,107,.35); }
+    .desktop-nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 650; color: #3f4640; }
+    .desktop-nav a { transition: color .2s ease; }
+    .desktop-nav a:hover { color: #000; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 800; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-dark { background: var(--black); color: var(--white); }
+    .button-green { background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; box-shadow: 0 10px 35px rgba(38,185,107,.16); }
+    .button-green:hover { box-shadow: 0 16px 46px rgba(38,185,107,.25); }
+    .button-outline { border-color: #3c443e; color: var(--white); background: rgba(255,255,255,.03); }
+
+    .hero { padding: 150px 24px 0; min-height: 860px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 700px; height: 700px; right: -250px; top: 50px; border-radius: 50%; background: radial-gradient(circle, rgba(38,185,107,.13), transparent 66%); filter: blur(10px); }
+    .hero-grid { position: relative; width: min(100%, var(--container)); margin: 0 auto; min-height: 640px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 70px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .eyebrow span { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 18px var(--green); }
+    .hero h1 { max-width: 790px; margin: 24px 0; font-size: clamp(52px, 6vw, 92px); line-height: .96; font-weight: 850; }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero-copy > p { max-width: 720px; color: #bdc5bf; font-size: 18px; }
+    .hero-actions { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
+    .hero-proof { margin-top: 54px; display: flex; gap: 44px; }
+    .hero-proof div { display: grid; gap: 5px; }
+    .hero-proof strong { color: var(--white); font-size: 24px; }
+    .hero-proof span { color: #828b84; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+
+    .problem, .services, .system, .results, .cases, .tools, .process, .contact, .faq { padding: 120px max(24px, calc((100vw - var(--container))/2)); }
+    .section-label { margin-bottom: 40px; color: #6f766f; font-size: 11px; font-weight: 850; letter-spacing: .16em; }
+    .section-label.light { color: #818a83; }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+    .problem h2, .section-head h2, .system h2, .process h2, .contact h2, .faq h2 { margin-bottom: 0; max-width: 760px; font-size: clamp(40px, 5vw, 70px); line-height: 1.02; }
+    .problem h2 span { color: #168a4c; }
+    .problem-content .lead { margin-bottom: 40px; max-width: 590px; color: #555d56; font-size: 19px; }
+    .diagnostic-list { list-style: none; margin: 0; padding: 0; }
+    .diagnostic-list li { display: grid; grid-template-columns: 45px 1fr; gap: 18px; padding: 24px 0; border-top: 1px solid #d8ded8; }
+    .diagnostic-list li > span { color: #168a4c; font-size: 11px; font-weight: 900; }
+    .diagnostic-list b { font-size: 18px; }
+    .diagnostic-list p { margin: 5px 0 0; color: #6c746d; font-size: 14px; }
+
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 64px; }
+    .section-head > p { max-width: 420px; margin: 0; color: #89928b; }
+    .services .section-head h2, .cases .section-head h2 { color: var(--white); }
+    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .service-card { min-height: 510px; padding: 28px; display: flex; flex-direction: column; background: linear-gradient(145deg,#171b18,#111411); border: 1px solid var(--dark-line); border-radius: var(--radius); }
+    .card-number { color: #606a62; font-size: 11px; font-weight: 850; }
+    .service-card h3 { margin-bottom: 14px; font-size: 28px; color: #fff; }
+    .service-card p { color: #909991; font-size: 14px; }
+
+    .results { background: #e8eee8; }
+    .results-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .result-card { min-height: 230px; padding: 26px; display: flex; flex-direction: column; background: rgba(255,255,255,.72); border: 1px solid rgba(15,35,15,.12); border-radius: 20px; }
+    .result-card.feature { background: var(--black); color: var(--white); }
+    .result-card strong { margin-top: auto; color: #167344; font-size: clamp(42px,4vw,64px); letter-spacing: -.06em; }
+    .result-card.feature strong { color: var(--green); }
+    .result-card span { font-size: 15px; font-weight: 800; }
+    .result-card p { margin: 8px 0 0; color: #738074; font-size: 12px; }
+
+    .case-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .case-card { min-height: 360px; padding: 32px; display: flex; flex-direction: column; background: #151815; border: 1px solid #2a312b; border-radius: 24px; position: relative; }
+    .case-top { display: flex; align-items: center; justify-content: space-between; color: #79837b; font-size: 10px; letter-spacing: .12em; }
+    .case-top b { color: var(--green); font-size: 12px; }
+    .case-card h3 { max-width: 420px; margin: 40px 0 16px; font-size: 30px; color: #fff; }
+    .case-card > p { max-width: 500px; color: #8b948d; }
+    .case-metrics { margin-top: auto; padding-top: 22px; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; border-top: 1px solid #29302a; }
+    .case-metrics strong { color: var(--white); font-size: 20px; }
+    .case-metrics span { color: #6f7971; font-size: 10px; text-transform: uppercase; }
+
+    .tool-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; }
+    .tool-grid div { min-height: 120px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: var(--white); border: 1px solid var(--line); border-radius: 18px; }
+    .tool-grid span { font-size: 12px; font-weight: 750; color: #101310; }
+
+    .process { background: var(--white); }
+    .process-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; }
+    .process-copy { position: sticky; top: 130px; align-self: start; }
+    .process-steps article { display: grid; grid-template-columns: 64px 1fr; gap: 22px; padding: 34px 0; border-top: 1px solid var(--line); }
+    .process-steps article > span { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--black); color: var(--green); font-size: 11px; font-weight: 900; }
+    .process-steps h3 { margin-bottom: 8px; font-size: 26px; color: #101310; }
+
+    .contact-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; }
+    .contact-copy { align-self: center; }
+    .contact-form { padding: 34px; background: var(--white); color: var(--dark-text); border-radius: 26px; }
+    .contact-form label { display: grid; gap: 8px; margin-bottom: 18px; color: #5d655e; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px 16px; color: #151815; background: #f4f6f2; border: 1px solid #e0e5df; border-radius: 12px; outline: none; }
+    .form-submit { width: 100%; border: 0; background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; padding: 15px; border-radius: 999px; font-weight: 800; cursor: pointer; }
+
+    .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
+    .faq-list details { border-top: 1px solid var(--line); }
+    .faq-list details:last-child { border-bottom: 1px solid var(--line); }
+    .faq-list summary { padding: 25px 0; display: flex; justify-content: space-between; gap: 20px; font-size: 17px; font-weight: 750; cursor: pointer; list-style: none; color: #101310; }
+    .faq-list summary span { color: #168a4c; font-size: 24px; }
+    .faq-list details p { padding: 0 46px 24px 0; margin: 0; color: var(--dark-grey); }
+
+    footer { padding: 70px 24px 30px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; background: var(--black); color: var(--white); max-width: var(--container); margin: 0 auto; }
+    footer p { color: #808982; font-size: 13px; }
+    footer b { margin-bottom: 8px; color: #667068; font-size: 10px; text-transform: uppercase; }
+    footer a:not(.brand) { color: #a6afa8; font-size: 13px; }
+    .footer-bottom { grid-column: 1/-1; width: 100%; padding-top: 26px; display: flex; justify-content: space-between; border-top: 1px solid #252b27; color: #657067; font-size: 11px; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 120px 18px 0; }
+      .problem-grid, .process-grid, .faq-layout, .contact-wrap, .service-grid, .case-grid { grid-template-columns: 1fr; gap: 50px; }
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+  </style>
 </head>
-<body style="margin:0;background:#080b09;">
-<script>
-(function(){
-var _c=':root { --black: #080b09; --black-soft: #101511; --card: #161b17; --green: #26b96b; --green-deep: #168a4c; --green-pale: #c9ead8; --offwhite: #f3f1eb; --white: #fff; --grey: #aab2ac; --dark-text: #101310; --dark-grey: #606861; --line: #dce2dc; --dark-line: #29302b; --radius: 24px; --container: 1240px; } * { box-sizing: border-box; } html { scroll-behavior: smooth; } body { margin: 0; background: var(--offwhite); color: var(--dark-text); font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif; overflow-x: hidden; } a { color: inherit; text-decoration: none; } button, input, select, textarea { font: inherit; } button { cursor: pointer; } h1, h2, h3, p { margin-top: 0; } h1, h2, h3 { letter-spacing: -0.045em; } p { line-height: 1.65; } .section-dark { background: var(--black); color: var(--white); } .section-light { background: var(--offwhite); } .site-header { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 32px), var(--container)); min-height: 68px; padding: 10px 12px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: rgba(245,246,242,.88); border: 1px solid rgba(16,19,16,.1); border-radius: 999px; backdrop-filter: blur(18px); z-index: 50; box-shadow: 0 14px 40px rgba(0,0,0,.08); } .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; } .desktop-nav { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 650; color: #3f4640; } .desktop-nav a:hover { color: #000; } .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 800; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; } .button:hover { transform: translateY(-2px); } .button-dark { background: var(--black); color: var(--white); } .button-green { background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; box-shadow: 0 10px 35px rgba(38,185,107,.16); } .button-outline { border-color: #3c443e; color: var(--white); background: rgba(255,255,255,.03); } .hero { padding: 150px 24px 0; min-height: 860px; position: relative; overflow: hidden; } .hero-grid { position: relative; width: min(100%, var(--container)); margin: 0 auto; min-height: 640px; display: grid; grid-template-columns: 1fr; align-items: center; } .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; } .eyebrow span { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 18px var(--green); } .hero h1 { max-width: 790px; margin: 24px 0; font-size: clamp(48px, 6vw, 84px); line-height: .96; font-weight: 850; } .hero h1 em { color: var(--green); font-style: normal; } .hero-copy > p { max-width: 720px; color: #bdc5bf; font-size: 18px; } .hero-actions { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; } .hero-proof { margin-top: 54px; display: flex; gap: 44px; } .hero-proof div { display: grid; gap: 5px; } .hero-proof strong { color: var(--white); font-size: 24px; } .hero-proof span { color: #828b84; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; } .problem, .services, .results, .cases, .tools, .process, .contact, .faq { padding: 120px max(24px, calc((100vw - var(--container))/2)); } .section-label { margin-bottom: 40px; color: #6f766f; font-size: 11px; font-weight: 850; letter-spacing: .16em; } .section-label.light { color: #818a83; } .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; } .problem h2, .section-head h2, .system h2, .process h2, .contact h2, .faq h2 { margin-bottom: 0; max-width: 760px; font-size: clamp(38px, 5vw, 64px); line-height: 1.02; } .problem h2 span { color: #168a4c; } .problem-content .lead { margin-bottom: 40px; max-width: 590px; color: #555d56; font-size: 19px; } .diagnostic-list { list-style: none; margin: 0; padding: 0; } .diagnostic-list li { display: grid; grid-template-columns: 45px 1fr; gap: 18px; padding: 24px 0; border-top: 1px solid #d8ded8; } .diagnostic-list li > span { color: #168a4c; font-size: 11px; font-weight: 900; } .diagnostic-list b { font-size: 18px; } .diagnostic-list p { margin: 5px 0 0; color: #6c746d; font-size: 14px; } .section-head { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 64px; } .section-head > p { max-width: 420px; margin: 0; color: #89928b; } .services .section-head h2, .cases .section-head h2 { color: var(--white); } .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; } .service-card { min-height: 480px; padding: 28px; display: flex; flex-direction: column; background: linear-gradient(145deg,#171b18,#111411); border: 1px solid var(--dark-line); border-radius: var(--radius); } .card-number { color: #606a62; font-size: 11px; font-weight: 850; } .service-card h3 { margin: 24px 0 14px; font-size: 28px; color: #fff; } .service-card p { color: #909991; font-size: 14px; } .results { background: #e8eee8; } .results-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; } .result-card { min-height: 230px; padding: 26px; display: flex; flex-direction: column; background: rgba(255,255,255,.72); border: 1px solid rgba(15,35,15,.12); border-radius: 20px; } .result-card.feature { background: var(--black); color: var(--white); } .result-card strong { margin-top: auto; color: #167344; font-size: clamp(38px,4vw,56px); letter-spacing: -.06em; } .result-card.feature strong { color: var(--green); } .result-card span { font-size: 15px; font-weight: 800; } .result-card p { margin: 8px 0 0; color: #738074; font-size: 12px; } .process { background: var(--white); } .process-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; } .process-copy { position: sticky; top: 130px; align-self: start; } .process-copy p { margin-top: 26px; max-width: 480px; color: var(--dark-grey); } .process-steps article { display: grid; grid-template-columns: 64px 1fr; gap: 22px; padding: 34px 0; border-top: 1px solid var(--line); } .process-steps article > span { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--black); color: var(--green); font-size: 11px; font-weight: 900; } .process-steps h3 { margin-bottom: 8px; font-size: 26px; color: #101310; } .process-steps p { margin: 0; color: var(--dark-grey); } .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; } .faq-layout > div:first-child p { margin-top: 20px; color: var(--dark-grey); } .faq-list details { border-top: 1px solid var(--line); } .faq-list details:last-child { border-bottom: 1px solid var(--line); } .faq-list summary { padding: 25px 0; display: flex; justify-content: space-between; gap: 20px; font-size: 17px; font-weight: 750; cursor: pointer; list-style: none; color: #101310; } .faq-list summary span { color: #168a4c; font-size: 24px; } .faq-list details p { padding: 0 46px 24px 0; margin: 0; color: var(--dark-grey); } .contact-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; } .contact-copy { align-self: center; } .contact-copy > p { max-width: 530px; margin-top: 28px; color: #9ba49d; } .contact-form { padding: 34px; background: var(--white); color: var(--dark-text); border-radius: 26px; } .contact-form label { display: grid; gap: 8px; margin-bottom: 18px; color: #5d655e; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; } .contact-form label small { display: inline; color: #879087; font-size: 9px; font-weight: 700; } .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; } .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px 16px; color: #151815; background: #f4f6f2; border: 1px solid #e0e5df; border-radius: 12px; outline: none; } .form-submit { width: 100%; border: 0; background: linear-gradient(135deg, #2ac476, #1ea962); color: #fff; padding: 15px; border-radius: 999px; font-weight: 800; cursor: pointer; } footer { padding: 70px 24px 30px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; background: var(--black); color: var(--white); max-width: var(--container); margin: 0 auto; } footer p { color: #808982; font-size: 13px; } footer b { margin-bottom: 8px; color: #667068; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; } footer a:not(.brand) { color: #a6afa8; font-size: 13px; } .footer-bottom { grid-column: 1/-1; width: 100%; padding-top: 26px; display: flex; justify-content: space-between; border-top: 1px solid #252b27; color: #657067; font-size: 11px; } @media (max-width: 760px) { .problem-grid, .process-grid, .faq-layout, .contact-wrap, .service-grid { grid-template-columns: 1fr; gap: 50px; } .results-grid { grid-template-columns: 1fr 1fr; } footer { grid-template-columns: 1fr 1fr; gap: 40px; } }';
-var _b='<header class="site-header"><a class="brand" href="#top"><span>Waseem Rao</span></a><nav class="desktop-nav"><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a><a href="#faq">FAQ</a></nav><a class="button button-dark header-cta" href="#contact">Discuss Your Project</a></header><main id="top"><section class="hero section-dark"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow"><span></span> I help service businesses scale to $10K per month</div><h1>Helping software and digital marketing agencies <em>win more clients.</em></h1><p>I identify what is breaking your outreach, whether it is targeting, messaging or the wrong channel, and build a predictable client acquisition system using Upwork, LinkedIn, cold email, paid ads and CRM.</p><div class="hero-actions"><a class="button button-green" href="#contact">Discuss Your Project <span>↗</span></a><a class="button button-outline" href="https://wa.me/923306614612?text=Hi%20Waseem,%20let\'s%20discuss%20our%20agency%20growth." target="_blank">Chat on WhatsApp</a></div><div class="hero-proof"><div><strong>50+</strong><span>Clients served</span></div><div><strong>$2M+</strong><span>Pipeline generated</span></div><div><strong>4</strong><span>Core growth channels</span></div></div></div></div></section><section class="problem section-light"><div class="section-label">01 / THE REAL PROBLEM</div><div class="problem-grid"><div><h2>Your outreach is not failing because of <span>effort.</span></h2></div><div class="problem-content"><p class="lead">Activity alone does not create pipeline. The problem is usually hidden inside the system.</p><ul class="diagnostic-list"><li><span>01</span><div><b>Poor targeting</b><p>Your team is reaching people who do not need the offer.</p></div></li><li><span>02</span><div><b>Generic messaging</b><p>The message sounds like everyone else in the inbox.</p></div></li><li><span>03</span><div><b>The wrong channel</b><p>Your buyers may be active somewhere else.</p></div></li></ul></div></div></section><section class="services section-dark" id="services"><div class="section-head"><div><div class="section-label">02 / CORE SERVICES</div><h2>Choose the right channel for your growth.</h2></div><p>Every engagement is built around your offer, ideal client and target market.</p></div><div class="service-grid"><div class="service-card"><span class="card-number">01</span><h3>Upwork Bidding</h3><p>Build a stronger Upwork presence and turn relevant opportunities into qualified client conversations.</p></div><div class="service-card"><span class="card-number">02</span><h3>LinkedIn Outreach</h3><p>Target, engage and follow up with decision makers through a controlled LinkedIn system.</p></div><div class="service-card"><span class="card-number">03</span><h3>Cold Email Marketing</h3><p>Build a deliverable outbound email system from infrastructure to qualified replies.</p></div></div></section><section class="results" id="results"><div class="section-head"><div><div class="section-label">04 / DOCUMENTED RESULTS</div><h2>Numbers that show the system working.</h2></div><p>Results drawn from campaign records and portfolio case studies across agency and B2B markets.</p></div><div class="results-grid"><div class="result-card feature"><span>Pipeline Generated</span><strong>$2M+</strong><p>Across outbound and multi-channel campaigns.</p></div><div class="result-card"><span>Active Contracts</span><strong>$50K+</strong><p>Ongoing monthly retainer value secured.</p></div><div class="result-card"><span>Acceptance Rate</span><strong>62%</strong><p>Targeted LinkedIn connection acceptance.</p></div><div class="result-card"><span>Follow-up Response</span><strong>47%</strong><p>Warm LinkedIn sequence response rate.</p></div></div></section><section class="process" id="process"><div class="process-grid"><div class="process-copy"><div class="section-label">07 / PROCESS</div><h2>A clear process from diagnosis to optimization.</h2><p>The goal is not more activity. The goal is a system your agency can understand, measure and improve.</p></div><div class="process-steps"><article><span>01</span><div><h3>Audit</h3><p>Review your offer, ideal client, current channels and outreach performance.</p></div></article><article><span>02</span><div><h3>Strategy</h3><p>Define who to target, where to reach them and what message will earn attention.</p></div></article><article><span>03</span><div><h3>Setup</h3><p>Prepare lists, proposals, sequences, campaign tools and pipeline stages.</p></div></article><article><span>04</span><div><h3>Launch</h3><p>Start with controlled activity, clear ownership and accurate tracking.</p></div></article><article><span>05</span><div><h3>Optimize</h3><p>Improve targeting, messaging and follow-ups using real campaign data.</p></div></article></div></div></section><section class="faq" id="faq"><div class="faq-layout"><div><div class="section-label">09 / FAQ</div><h2>Common questions before we start.</h2><p>Clear expectations make better campaigns.</p></div><div class="faq-list"><details><summary>Who do you work with?<span>+</span></summary><p>Software houses, digital marketing agencies, and B2B service businesses looking for predictable client acquisition.</p></details><details><summary>Which outreach channel is right for my agency?<span>+</span></summary><p>It depends on your ticket size and audience. We audit your offer and recommend the highest leverage channel.</p></details><details><summary>Can you manage multiple channels together?<span>+</span></summary><p>Yes, we build multi-channel engines combining LinkedIn, Upwork, and Cold Email.</p></details></div></div></section><section class="contact section-dark" id="contact"><div class="contact-wrap"><div class="contact-copy"><div class="section-label light">08 / START A CONVERSATION</div><h2>Let’s discuss your client acquisition goals.</h2><p>Share a few details about your business. Your submission will open or prepare a direct connection so we can work together.</p><div class="contact-points"><span>Software agencies</span><span>Digital marketing agencies</span><span>Freelancers</span></div></div><form class="contact-form" action="https://formsubmit.co/bdwaseemrao@gmail.com" method="POST"><input type="hidden" name="_subject" value="🚀 New Lead: Waseem Rao Landing Page"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><label>Full name<input type="text" name="name" placeholder="Your name" required></label><label>Business name <small>(optional)</small><input type="text" name="business" placeholder="Agency or company name"></label><div class="form-row"><label>Email address<input type="email" name="email" placeholder="Your email address" required></label><label>WhatsApp number<input type="tel" name="phone" placeholder="+92 300 0000000" required></label></div><label>Main client acquisition challenge<textarea name="message" rows="4" placeholder="Tell me what is not working in your current outreach..." required></textarea></label><button class="form-submit" type="submit">Discuss My Project ↗</button></form></div></section></main><footer><div><div class="brand">Waseem Rao</div><p>Client acquisition systems for agencies, B2B service businesses and freelancers.</p></div><div><b>Navigate</b><a href="#services">Services</a><a href="#results">Results</a><a href="#process">Process</a></div><div><b>Connect</b><a href="https://wa.me/923306614612" target="_blank">WhatsApp (+92 330 6614612)</a><a href="mailto:bdwaseemrao@gmail.com">bdwaseemrao@gmail.com</a></div><div class="footer-bottom"><span>© 2026 Waseem Rao. All Rights Reserved.</span><span>Multan, Pakistan</span></div></footer>';
-var s=document.createElement('style');s.innerHTML=_c;document.head.appendChild(s);document.body.innerHTML=_b;
-})();
-</script>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top"><span>Waseem Rao</span></a>
+    <nav class="desktop-nav">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="button button-dark header-cta" href="#contact">Discuss Your Project</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero section-dark">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> I help service businesses scale to $10K per month</div>
+          <h1>Helping software and digital marketing agencies <em>win more clients.</em></h1>
+          <p>I identify what is breaking your outreach, whether it is targeting, messaging or the wrong channel, and build a predictable client acquisition system using Upwork, LinkedIn, cold email, paid ads and CRM.</p>
+          <div class="hero-actions">
+            <a class="button button-green" href="#contact">Discuss Your Project <span>↗</span></a>
+            <a class="button button-outline" href="https://wa.me/923306614612?text=Hi%20Waseem,%20let's%20discuss%20our%20agency%20growth." target="_blank">Chat on WhatsApp</a>
+          </div>
+          <div class="hero-proof">
+            <div><strong>50+</strong><span>Clients served</span></div>
+            <div><strong>$2M+</strong><span>Pipeline generated</span></div>
+            <div><strong>4</strong><span>Core growth channels</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem section-light">
+      <div class="section-label">01 / THE REAL PROBLEM</div>
+      <div class="problem-grid">
+        <div>
+          <h2>Your outreach is not failing because of <span>effort.</span></h2>
+        </div>
+        <div class="problem-content">
+          <p class="lead">Activity alone does not create pipeline. The problem is usually hidden inside the system.</p>
+          <ul class="diagnostic-list">
+            <li><span>01</span><div><b>Poor targeting</b><p>Your team is reaching people who do not need the offer.</p></div></li>
+            <li><span>02</span><div><b>Generic messaging</b><p>The message sounds like everyone else in the inbox.</p></div></li>
+            <li><span>03</span><div><b>The wrong channel</b><p>Your buyers may be active somewhere else.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section-dark" id="services">
+      <div class="section-head">
+        <div>
+          <div class="section-label">02 / CORE SERVICES</div>
+          <h2>Choose the right channel for your growth.</h2>
+        </div>
+        <p>Every engagement is built around your offer, ideal client and target market.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="card-number">01</span>
+          <h3>Upwork Bidding</h3>
+          <p>Build a stronger Upwork presence and turn relevant opportunities into qualified client conversations.</p>
+        </div>
+        <div class="service-card">
+          <span class="card-number">02</span>
+          <h3>LinkedIn Outreach</h3>
+          <p>Target, engage and follow up with decision makers through a controlled LinkedIn system.</p>
+        </div>
+        <div class="service-card">
+          <span class="card-number">03</span>
+          <h3>Cold Email Marketing</h3>
+          <p>Build a deliverable outbound email system from infrastructure to qualified replies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+      <div class="section-head">
+        <div>
+          <div class="section-label">04 / DOCUMENTED RESULTS</div>
+          <h2>Numbers that show the system working.</h2>
+        </div>
+        <p>Results drawn from campaign records and portfolio case studies across agency and B2B markets.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card feature">
+          <span>Pipeline Generated</span>
+          <strong>$2M+</strong>
+          <p>Across outbound and multi-channel campaigns.</p>
+        </div>
+        <div class="result-card">
+          <span>Active Contracts</span>
+          <strong>$50K+</strong>
+          <p>Ongoing monthly retainer value secured.</p>
+        </div>
+        <div class="result-card">
+          <span>Acceptance Rate</span>
+          <strong>62%</strong>
+          <p>Targeted LinkedIn connection acceptance.</p>
+        </div>
+        <div class="result-card">
+          <span>Follow-up Response</span>
+          <strong>47%</strong>
+          <p>Warm LinkedIn sequence response rate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="cases section-dark" id="cases">
+      <div class="section-head">
+        <div>
+          <div class="section-label">05 / CASE STUDIES</div>
+          <h2>Selected client acquisition campaigns.</h2>
+        </div>
+        <p>Different offers require different systems. These examples show the range across LinkedIn, email, Upwork and paid media.</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-top"><span>LINKEDIN OUTREACH AUTOMATION</span><b>Waalaxy</b></div>
+          <h3>Operations Manager Outreach</h3>
+          <p>Multi-market campaigns targeting agency owners across the UK, Europe and Australia.</p>
+          <div class="case-metrics">
+            <div><strong>20</strong><span>Meetings</span></div>
+            <div><strong>7</strong><span>Closed Deals</span></div>
+            <div><strong>52.7%</strong><span>Acceptance</span></div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-top"><span>COLD EMAIL + LINKEDIN</span><b>Lemlist</b></div>
+          <h3>Blockchain Services Campaign</h3>
+          <p>Cold email and LinkedIn touchpoints for Web3 and technology decision-makers.</p>
+          <div class="case-metrics">
+            <div><strong>907</strong><span>Leads</span></div>
+            <div><strong>3</strong><span>Meetings</span></div>
+            <div><strong>10</strong><span>Days</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Stack Section -->
+    <section class="tools section-light" id="tools">
+      <div class="section-head">
+        <div>
+          <div class="section-label">06 / TOOL STACK</div>
+          <h2>Built with the tools your buyers already respond to.</h2>
+        </div>
+      </div>
+      <div class="tool-grid">
+        <div><b>in</b><span>Sales Navigator</span></div>
+        <div><b>W</b><span>Waalaxy</span></div>
+        <div><b>D</b><span>Dripify</span></div>
+        <div><b>H</b><span>HeyReach</span></div>
+        <div><b>I</b><span>Instantly</span></div>
+        <div><b>L</b><span>Lemlist</span></div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+      <div class="process-grid">
+        <div class="process-copy">
+          <div class="section-label">07 / PROCESS</div>
+          <h2>A clear process from diagnosis to optimization.</h2>
+          <p>The goal is not more activity. The goal is a system your agency can understand, measure and improve.</p>
+        </div>
+        <div class="process-steps">
+          <article><span>01</span><div><h3>Audit</h3><p>Review your offer, ideal client, current channels and outreach performance.</p></div></article>
+          <article><span>02</span><div><h3>Strategy</h3><p>Define who to target, where to reach them and what message will earn attention.</p></div></article>
+          <article><span>03</span><div><h3>Setup</h3><p>Prepare lists, proposals, sequences, campaign tools and pipeline stages.</p></div></article>
+          <article><span>04</span><div><h3>Launch</h3><p>Start with controlled activity, clear ownership and accurate tracking.</p></div></article>
+          <article><span>05</span><div><h3>Optimize</h3><p>Improve targeting, messaging and follow-ups using real campaign data.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="faq-layout">
+        <div>
+          <div class="section-label">09 / FAQ</div>
+          <h2>Common questions before we start.</h2>
+          <p>Clear expectations make better campaigns.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>Who do you work with?<span>+</span></summary><p>Software houses, digital marketing agencies, and B2B service businesses looking for predictable client acquisition.</p></details>
+          <details><summary>Which outreach channel is right for my agency?<span>+</span></summary><p>It depends on your ticket size and audience. We audit your offer and recommend the highest leverage channel.</p></details>
+          <details><summary>Can you manage multiple channels together?<span>+</span></summary><p>Yes, we build multi-channel engines combining LinkedIn, Upwork, and Cold Email.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact section-dark" id="contact">
+      <div class="contact-wrap">
+        <div class="contact-copy">
+          <div class="section-label light">08 / START A CONVERSATION</div>
+          <h2>Let’s discuss your client acquisition goals.</h2>
+          <p>Share a few details about your business. Submit the form to send an instant email notification or reach out directly.</p>
+        </div>
+
+        <form class="contact-form" action="https://formsubmit.co/bdwaseemrao@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="🚀 New Lead: Waseem Rao Landing Page">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <label>Full name
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>Business name (Optional)
+            <input type="text" name="business" placeholder="Agency, company or freelance brand">
+          </label>
+          <div class="form-row">
+            <label>Email address
+              <input type="email" name="email" placeholder="Your email address" required>
+            </label>
+            <label>WhatsApp number
+              <input type="tel" name="phone" placeholder="+92 300 0000000" required>
+            </label>
+          </div>
+          <label>Main client acquisition challenge
+            <textarea name="message" rows="4" placeholder="Tell me what is not working in your current outreach..." required></textarea>
+          </label>
+          <button class="form-submit" type="submit">Discuss My Project ↗</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div class="brand">Waseem Rao</div>
+      <p>Client acquisition systems for agencies, B2B service businesses and freelancers.</p>
+    </div>
+    <div>
+      <b>Navigate</b>
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+    </div>
+    <div>
+      <b>Connect</b>
+      <a href="https://wa.me/923306614612" target="_blank">WhatsApp (+92 330 6614612)</a>
+      <a href="mailto:bdwaseemrao@gmail.com">bdwaseemrao@gmail.com</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Waseem Rao. All Rights Reserved.</span>
+      <span>Multan, Pakistan</span>
+    </div>
+  </footer>
+
 </body>
 </html>
